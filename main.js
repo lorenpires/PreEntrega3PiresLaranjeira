@@ -1,76 +1,117 @@
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                        ARRAY PRODUCTOS
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-const productos = [
-    {
-        id: 1,
-        nombre: "Vino 1",
-        precio: 9000,
-        stock: "Si",
-        bodega: "Two",
-        tinto: "si",
-    },
-    {
-        id: 2,
-        nombre: "Vino 2",
-        precio: 25000,
-        stock: "Si",
-        bodega: "One",
-        tinto: "no",
-    },
-    {
-        id: 3,
-        nombre: "Vino 3",
-        precio: 14000,
-        stock: "Si",
-        bodega: "Six",
-        tinto: "si",
-    },
-    {
-        id: 4,
-        nombre: "Vino 4",
-        precio: 8000,
-        stock: "Si",
-        bodega: "One",
-        tinto: "si",
-    },
-]
-
+const productos = []
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                        ARRAY CARRITO
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 const carrito = []
 
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                AGREGO PRODUCTOS A HTML
+                AGREGO PRODUCTOS A ESTRENOS
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-function AgregarProductos() {
-    productos.forEach((producto) => {
-        let agregarProductos = document.createElement("button")
-        agregarProductos.className = "btn btn-outline-success fw-bold card-text"
-        agregarProductos.innerHTML = `Agregar al carrito`
-        agregarProductos.addEventListener("click", () =>
-            AgregarCarrito(producto)
-        )
-        let cardProductos = document.createElement("div")
-        cardProductos.className = "card-body"
-        cardProductos.innerHTML = `
-                <p class="card-text">
-                    Precio: $${producto.precio}<div></div>
-                    Stock: ${producto.stock}
-                </p>
-        `
+function AgregarProductosIndex() {
+    fetch("./data.json")
+        .then((res) => res.json())
+        .then((data) => {
+            data.forEach((producto) => {
+                if (Number(producto.Año) > 2021) {
+                    let agregarProductos = document.createElement("div")
+                    agregarProductos.className = "align-self-end"
+                    agregarProductos.innerHTML = `
+                        <button class="btn boton-pelicula  ">
+                            Agregar al carrito
+                        </button>
+                    `
+                    agregarProductos.addEventListener("click", () =>
+                        ExisteCarrito(producto)
+                    )
+                    let cardProductos = document.createElement("div")
+                    cardProductos.className = "info-pelicula"
+                    cardProductos.innerHTML = `
+                    <p class="">
+                        <div class="datos-producto">Año: ${producto.Año}</div>
+                        <div class="datos-producto">Director: ${producto.Director}</div>
+                        <div class="datos-producto">Género: ${producto.Genero}</div>
+                        <div class="datos-producto">Duración: ${producto.Duracion}</div>
+                        <div class="precio-producto">Precio: $${producto.Precio}</div>
+                    </p>
+                    `
 
-        let listadoProductos = document.createElement("div")
-        listadoProductos.className = "card border-dark mb-3"
-        listadoProductos.style = "max-width: 20rem"
-        listadoProductos.innerHTML = `
-            <div class="card-header">${producto.nombre}</div>
-        `
-        cardProductos.appendChild(agregarProductos)
-        listadoProductos.appendChild(cardProductos)
-        divProductos.appendChild(listadoProductos)
-    })
+                    let listadoProductos = document.createElement("div")
+                    listadoProductos.className =
+                        "col-3 mx-3 my-3 py-3 px-4 row card-pelicula"
+                    listadoProductos.innerHTML = `
+                    <div class="titulo-pelicula text-center fs-4">${producto.Titulo}</div>
+                    `
+                    listadoProductos.appendChild(cardProductos)
+                    listadoProductos.appendChild(agregarProductos)
+                    divProductos.appendChild(listadoProductos)
+                }
+            })
+            productos.push(...data)
+        })
+}
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                AGREGO PRODUCTOS A CATALOGO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+function AgregarProductosCatalogo() {
+    fetch("./data.json")
+        .then((res) => res.json())
+        .then((data) => {
+            data.forEach((producto) => {
+                let agregarFiltrados = document.createElement("div")
+                agregarFiltrados.className = "align-self-end"
+                agregarFiltrados.innerHTML = `
+                    <button class="btn boton-pelicula  ">
+                        Agregar al carrito
+                    </button>
+                    `
+                agregarFiltrados.addEventListener("click", () =>
+                    ExisteCarrito(producto)
+                )
+                let cardFiltrados = document.createElement("div")
+                cardFiltrados.className = "info-pelicula"
+                cardFiltrados.innerHTML = `
+                    <p class="">
+                        <div class="datos-producto">Año: ${producto.Año}</div>
+                        <div class="datos-producto">Director: ${producto.Director}</div>
+                        <div class="datos-producto">Género: ${producto.Genero}</div>
+                        <div class="datos-producto">Duración: ${producto.Duracion}</div>
+                        <div class="precio-producto">Precio: $${producto.Precio}</div>
+                    </p>
+                    `
+
+                let listadoFiltrados = document.createElement("div")
+                listadoFiltrados.className =
+                    "col-3 mx-3 my-3 py-3 px-4 row card-pelicula"
+                listadoFiltrados.innerHTML = `
+                    <div class="titulo-pelicula text-center fs-4">${producto.Titulo}</div>
+                    `
+                listadoFiltrados.appendChild(cardFiltrados)
+                listadoFiltrados.appendChild(agregarFiltrados)
+                divFiltrados.appendChild(listadoFiltrados)
+            })
+            productos.push(...data)
+        })
+}
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                 CHEQUEO PRODUCTOS DE CARRITO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+function ExisteCarrito(producto) {
+    let existe = carrito.includes(producto)
+    existe === true
+        ? Toastify({
+              text: "Ya esta en el carrito",
+              style: {
+                  background:
+                      "radial-gradient(circle, rgba(255,183,3,1) 80%, rgba(251,213,116,1) 91%, rgba(247,247,247,1) 99%)",
+              },
+              duration: 3000,
+          }).showToast()
+        : AgregarCarrito(producto)
 }
 
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -79,6 +120,14 @@ function AgregarProductos() {
 function AgregarCarrito(producto) {
     carrito.push(producto)
     divCarrito()
+    Toastify({
+        text: "Agregado al carrito",
+        style: {
+            background:
+                "radial-gradient(circle, rgba(2,48,71,1) 66%, rgba(70,103,120,1) 92%, rgba(247,247,247,1) 99%)",
+        },
+        duration: 3000,
+    }).showToast()
 }
 
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -88,48 +137,63 @@ function BorrarDeCarrito(producto) {
     let index = carrito.indexOf(producto)
     carrito.splice(index, 1)
     divCarrito()
+    Toastify({
+        text: "Borrado del carrito",
+        style: {
+            background:
+                "radial-gradient(circle, rgba(114,108,41,1) 78%, rgba(162,158,114,1) 91%, rgba(255,255,255,1) 99%)",
+        },
+        duration: 3000,
+    }).showToast()
 }
 
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-ACTUALIZAR PRODUCTOS DEL CARRITO Y PASAJE A HTML
+    ACTUALIZAR PRODUCTOS DEL CARRITO Y PASAJE A HTML
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 function divCarrito() {
     localStorage.setItem("carrito", JSON.stringify(carrito))
     CarritoProductos.innerHTML = ""
+    console.log(carrito)
     carrito.forEach((producto) => {
-        let eliminarCarrito = document.createElement("button")
-        eliminarCarrito.className = "btn btn-outline-danger fw-bold card-text"
-        eliminarCarrito.innerHTML = `Borrar del Carrito`
+        let eliminarCarrito = document.createElement("div")
+        eliminarCarrito.className =
+            "align-self-end col-7 mt-2 row justify-content-end"
+        eliminarCarrito.innerHTML = `
+                        <button class="btn boton-carrito rounded-3">
+                            Eliminar del carrito
+                        </button>
+                    `
         eliminarCarrito.addEventListener("click", () =>
             BorrarDeCarrito(producto)
         )
-        let cardCarrito = document.createElement("div")
-        cardCarrito.className = "card-body"
+        /*let cardCarrito = document.createElement("div")
+        cardCarrito.className = "info-carrito"
         cardCarrito.innerHTML = `
-                <p class="card-text">
-                    Precio: $${producto.precio}<div></div>
-                    Stock: ${producto.stock}
-                </p>
-        `
-
+                    <p class="">
+                        <div class="datos-producto">Año: ${producto.Año}</div>
+                        <div class="datos-producto">Director: ${producto.Director}</div>
+                        <div class="datos-producto">Género: ${producto.Genero}</div>
+                        <div class="datos-producto">Duración: ${producto.Duracion}</div>
+                        <div class="precio-producto">Precio: $${producto.Precio}</div>
+                    </p>
+                    `
+        */
         let listadoCarrito = document.createElement("div")
-        listadoCarrito.className = "card border-dark mb-3"
-        listadoCarrito.style = "max-width: 20rem"
+        listadoCarrito.className =
+            "col-4 mx-3 my-3 py-3 px-4 row justify-content-end card-carrito"
         listadoCarrito.innerHTML = `
-            <div class="card-header">${producto.nombre}</div>
-        `
-        cardCarrito.appendChild(eliminarCarrito)
-        listadoCarrito.appendChild(cardCarrito)
+                    <div class="titulo-carrito text-center fs-4">${producto.Titulo}</div>
+                    `
+        //listadoCarrito.appendChild(cardCarrito)
+        listadoCarrito.appendChild(eliminarCarrito)
         CarritoProductos.appendChild(listadoCarrito)
     })
     let TotalCompra = carrito.reduce((accum, producto) => {
-        return accum + producto.precio
+        return accum + Number(producto.Precio)
     }, 0)
     let PrecioFinal = document.createElement("h3")
     PrecioFinal.innerHTML = `Total: $${TotalCompra}`
     CarritoProductos.appendChild(PrecioFinal)
-    console.log(inputName.value.length)
-    console.log(inputEmail.length)
 }
 
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -142,100 +206,74 @@ function RecibirStorage() {
 }
 
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                        FILTRO BODEGA
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-function FiltradoBodega(bodegaElegida) {
-    const productosFiltrados = productos.filter(
-        (producto) => producto.bodega === bodegaElegida
-    )
-    listadoVinos.innerHTML = ""
-    productosFiltrados.forEach((producto) => {
-        let listado = document.createElement("div")
-        listado.className = "card border-dark mb-3"
-        listado.style = "max-width: 20rem"
-        listado.innerHTML = `
-            <div class="card-header">${producto.nombre}</div>
-            <div class="card-body">
-                <p class="card-text">
-                    Precio: $${producto.precio}<div></div>
-                    Stock: ${producto.stock}
-                </p>
-                <button type="button" class="botonAgregar btn btn-outline-success fw-bold">
-                    Agregar al carrito
-                </button>
-            </div>
-        `
-        listadoVinos.appendChild(listado)
-    })
-}
-
-/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                        FILTRO TINTO
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-function FiltradoTinto(valor) {
-    const productosFiltrados = productos.filter(
-        (producto) => producto.tinto === valor
-    )
-    listadoVinos.innerHTML = ""
-    productosFiltrados.forEach((producto) => {
-        let listado = document.createElement("div")
-        listado.className = "card border-dark mb-3"
-        listado.style = "max-width: 20rem"
-        listado.innerHTML = `
-            <div class="card-header">${producto.nombre}</div>
-            <div class="card-body">
-                <p class="card-text">
-                    Precio: $${producto.precio}<div></div>
-                    Stock: ${producto.stock}
-                </p>
-                <button type="button" class="botonAgregar btn btn-outline-success fw-bold">
-                    Agregar al carrito
-                </button>
-            </div>
-        `
-        listadoVinos.appendChild(listado)
-    })
-}
-/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                             FILTRO
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 function Filtrado(valor, filtroUsado) {
+    ReseteoFiltro(filtroUsado)
+    console.log(filtroUsado)
+    console.log(valor)
+    console.log(productos)
     const productosFiltrados =
-        filtroUsado === "bodega"
-            ? productos.filter((producto) => producto.bodega === valor)
-            : filtroUsado === "tinto"
-            ? productos.filter((producto) => producto.tinto === valor)
+        filtroUsado === "precio"
+            ? productos.filter((producto) => producto.Precio === valor)
+            : filtroUsado === "genero"
+            ? productos.filter((producto) => producto.Genero === valor)
+            : filtroUsado === "4K"
+            ? productos.filter((producto) => producto.cuatroK === valor)
             : console.log("nada")
-
-    listadoVinos.innerHTML = ""
+    divFiltrados.innerHTML = ""
     productosFiltrados.forEach((producto) => {
-        let agregarFiltrados = document.createElement("button")
-        agregarFiltrados.className = "btn btn-outline-success fw-bold card-text"
-        agregarFiltrados.innerHTML = `Agregar al carrito`
+        let agregarFiltrados = document.createElement("div")
+        agregarFiltrados.className = "align-self-end"
+        agregarFiltrados.innerHTML = `
+            <button class="btn boton-pelicula  ">
+                Agregar al carrito
+            </button>
+            `
         agregarFiltrados.addEventListener("click", () =>
-            AgregarCarrito(producto)
+            ExisteCarrito(producto)
         )
         let cardFiltrados = document.createElement("div")
-        cardFiltrados.className = "card-body"
+        cardFiltrados.className = "info-pelicula"
         cardFiltrados.innerHTML = `
-                <p class="card-text">
-                    Precio: $${producto.precio}<div></div>
-                    Stock: ${producto.stock}
-                </p>
-        `
-
+            <p class="">
+                <div class="datos-producto">Año: ${producto.Año}</div>
+                <div class="datos-producto">Director: ${producto.Director}</div>
+                <div class="datos-producto">Género: ${producto.Genero}</div>
+                <div class="datos-producto">Duración: ${producto.Duracion}</div>
+                <div class="precio-producto">Precio: $${producto.Precio}</div>
+            </p>
+            `
         let listadoFiltrados = document.createElement("div")
-        listadoFiltrados.className = "card border-dark mb-3"
-        listadoFiltrados.style = "max-width: 20rem"
+        listadoFiltrados.className =
+            "col-3 mx-3 my-3 py-3 px-4 row card-pelicula"
         listadoFiltrados.innerHTML = `
-            <div class="card-header">${producto.nombre}</div>
-        `
-        cardFiltrados.appendChild(agregarFiltrados)
+            <div class="titulo-pelicula text-center fs-4">${producto.Titulo}</div>
+            `
         listadoFiltrados.appendChild(cardFiltrados)
-        listadoVinos.appendChild(listadoFiltrados)
+        listadoFiltrados.appendChild(agregarFiltrados)
+        divFiltrados.appendChild(listadoFiltrados)
     })
 }
-
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                      RESETEO FILTRO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+function ReseteoFiltro(filtroUsado) {
+    if (filtroUsado === "precio") {
+        input4K[1].checked = false
+        input4K[0].checked = false
+        inputGenero.value = ""
+    }
+    if (filtroUsado === "genero") {
+        input4K[1].checked = false
+        input4K[0].checked = false
+        inputPrecio.value = ""
+    }
+    if (filtroUsado === "4K") {
+        inputPrecio.value = ""
+        inputGenero.value = ""
+    }
+}
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                     CONFIRMACION COMPRA
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
@@ -245,13 +283,13 @@ function ConsultarCompra(e) {
         ? Swal.fire({
               icon: "error",
               title: "Oops...",
-              text: "Se necesita ingresar un nombre",
+              text: "Se necesitan ingresar un nombre",
           })
         : inputEmail.value.length === 0
         ? Swal.fire({
               icon: "error",
               title: "Oops...",
-              text: "Se necesita ingresar un email",
+              text: "Se necesitan ingresar un email",
           })
         : EjectuarCompra()
 }
@@ -278,16 +316,18 @@ function FaltanProductos(e) {
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                         INICIA LECTURA
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-const divProductos = document.querySelector(".container-cards")
-const listadoVinos = document.querySelector(".containerVinos")
+const divProductos = document.querySelector(".container-index")
+const divFiltrados = document.querySelector(".container-catalogo")
 const CarritoProductos = document.querySelector(".divCarrito")
-const inputBodega = document.querySelector(".inputBodega")
-const inputTinto = document.querySelectorAll(".inputTinto")
+const inputPrecio = document.querySelector(".inputPrecio")
+const inputGenero = document.querySelector(".inputGenero")
+const input4K = document.querySelectorAll(".input4K")
 const formulario = document.querySelector(".formulario")
 const inputName = document.querySelector("#inputName")
 const inputEmail = document.querySelector("#inputEmail")
 
-AgregarProductos()
+AgregarProductosIndex()
+AgregarProductosCatalogo()
 
 carrito.length === 0 && RecibirStorage()
 
@@ -295,12 +335,16 @@ formulario.addEventListener("submit", (e) => {
     carrito.length === 0 ? FaltanProductos(e) : ConsultarCompra(e)
 })
 
-document.querySelectorAll(".inputTinto").forEach((boton, index) => {
+document.querySelectorAll(".input4K").forEach((boton, index) => {
     boton.addEventListener("input", () => {
-        index === 0 ? Filtrado("si", "tinto") : Filtrado("no", "tinto")
+        index === 0 ? Filtrado("si", "4K") : Filtrado("no", "4K")
     })
 })
 
-inputBodega.addEventListener("input", () =>
-    Filtrado(inputBodega.value, "bodega")
+inputPrecio.addEventListener("input", () =>
+    Filtrado(inputPrecio.value, "precio")
+)
+
+inputGenero.addEventListener("input", () =>
+    Filtrado(inputGenero.value, "genero")
 )

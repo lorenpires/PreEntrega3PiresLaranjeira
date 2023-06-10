@@ -1,0 +1,136 @@
+a {
+    color: none;
+}
+body {
+    background: linear-gradient(
+        90deg,
+        rgba(2, 0, 36, 1) 0%,
+        rgba(1, 30, 52, 1) 31%,
+        rgba(1, 123, 148, 1) 100%
+    );
+    font-family: "Raleway", sans-serif;
+    font-weight: 600;
+    color: #ffb703;
+}
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(
+        90deg,
+        rgba(2, 0, 36, 1) 0%,
+        rgba(1, 30, 52, 1) 31%,
+        rgba(1, 123, 148, 1) 100%
+    );
+}
+.separador {
+    height: 100px;
+    background: linear-gradient(
+        90deg,
+        rgba(2, 0, 36, 1) 0%,
+        rgba(1, 30, 52, 1) 31%,
+        rgba(1, 123, 148, 1) 100%
+    );
+}
+.titulo-pagina {
+    font-family: "Tilt Prism", cursive;
+    color: #ffb703;
+    font-size: 3rem;
+}
+.titulo-pagina:hover {
+    color: #fb8500;
+}
+.lista {
+    list-style: none;
+    display: inline-flex;
+}
+.subtitulo-pagina {
+    color: #ffb703;
+    font-size: 1.4rem;
+}
+.subtitulo-pagina:hover {
+    color: #fb8500;
+}
+
+.ultimas {
+    background-color: #ffc73b;
+    color: rgba(2, 0, 36, 1);
+    font-weight: bolder;
+}
+.card-pelicula {
+    background-color: rgb(1, 30, 52);
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 3px;
+    border-color: #ffb703;
+    color: #ffb703;
+}
+.boton-pelicula {
+    background-color: rgba(1, 30, 52, 1);
+    color: #ffb703;
+    border-color: #ffb703;
+    font-weight: 600;
+}
+.boton-pelicula:hover {
+    background-color: #ffb703;
+    color: rgba(1, 30, 52, 1);
+    border-color: rgba(1, 30, 52, 1);
+    font-weight: 800;
+}
+.seccionFiltro {
+    padding-top: 2rem;
+    padding-left: 5rem;
+}
+.catalogo-filtros {
+    font-size: 1rem;
+}
+.inputPrecio {
+    max-width: 100px;
+}
+.inputGenero {
+    max-width: 170px;
+}
+.inputs {
+    background-color: rgba(1, 30, 52, 1);
+    color: #ffb703;
+    border-color: #ffb703;
+    font-weight: 600;
+}
+.input4K {
+    color: #fb8500;
+}
+.card-carrito {
+    background-color: #ffb703;
+    color: rgba(1, 30, 52, 1);
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 3px;
+    border-color: rgba(1, 30, 52, 1);
+    font-size: small;
+}
+.boton-carrito {
+    background-color: #d99c02;
+}
+.boton-carrito:hover {
+    background-color: #d99c02;
+    font-weight: 800;
+}
+.boton-comprar {
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 3px;
+    border-color: white;
+    background-color: rgba(1, 30, 52, 1);
+    color: white;
+    font-weight: 600;
+}
+.boton-comprar:hover {
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 3px;
+    border-color: #ffb703;
+    background-color: rgba(1, 30, 52, 1);
+    color: #ffb703;
+    font-weight: 600;
+}

@@ -1,0 +1,299 @@
+[
+    {
+        "Titulo": "Spider-Man Across the Spider-Verse",
+        "Año": "2023",
+        "Duracion": "140 min",
+        "Genero": "Action",
+        "Director": "Joaquim Dos Santos",
+        "Precio": "400",
+        "cuatroK": "si"
+    },
+    {
+        "Titulo": "Guardians of the Galaxy Vol. 3",
+        "Año": "2023",
+        "Duracion": "150 min",
+        "Genero": "Action",
+        "Director": "James Gunn",
+        "Precio": "400",
+        "cuatroK": "si"
+    },
+    {
+        "Titulo": "The Menu",
+        "Año": "2022",
+        "Duracion": "107 min",
+        "Genero": "Drama",
+        "Director": "Mark Mylod",
+        "Precio": "400",
+        "cuatroK": "si"
+    },
+    {
+        "Titulo": "TÁR",
+        "Año": "2022",
+        "Duracion": "158 min",
+        "Genero": "Drama",
+        "Director": "Todd Field",
+        "Precio": "400",
+        "cuatroK": "si"
+    },
+    {
+        "Titulo": "The Little Mermaid",
+        "Año": "2023",
+        "Duracion": "135 min",
+        "Genero": "Adventure",
+        "Director": "Rob Marshall",
+        "Precio": "400",
+        "cuatroK": "si"
+    },
+    {
+        "Titulo": "Everything Everywhere All at Once",
+        "Año": "2022",
+        "Duracion": "140 min",
+        "Genero": "Drama",
+        "Director": "Daniel Scheinert, Daniel Kwan",
+        "Precio": "400",
+        "cuatroK": "si"
+    },
+    {
+        "Titulo": "Avatar",
+        "Año": "2009",
+        "Duracion": "162 min",
+        "Genero": "Adventure",
+        "Director": "James Cameron",
+        "Precio": "400",
+        "cuatroK": "si"
+    },
+    {
+        "Titulo": "I Am Legend",
+        "Año": "2007",
+        "Duracion": "101 min",
+        "Genero": "Drama",
+        "Director": "Francis Lawrence",
+        "Precio": "250",
+        "cuatroK": "no"
+    },
+    {
+        "Titulo": "300",
+        "Año": "2006",
+        "Duracion": "117 min",
+        "Genero": "Action",
+        "Director": "Zack Snyder",
+        "Precio": "250",
+        "cuatroK": "no"
+    },
+    {
+        "Titulo": "The Avengers",
+        "Año": "2012",
+        "Duracion": "143 min",
+        "Genero": "Action",
+        "Director": "Joss Whedon",
+        "Precio": "300",
+        "cuatroK": "si"
+    },
+    {
+        "Titulo": "The Wolf of Wall Street",
+        "Año": "2013",
+        "Duracion": "180 min",
+        "Genero": "Comedy",
+        "Director": "Martin Scorsese",
+        "Precio": "350",
+        "cuatroK": "si"
+    },
+    {
+        "Titulo": "Interstellar",
+        "Año": "2014",
+        "Duracion": "169 min",
+        "Genero": "Adventure",
+        "Director": "Christopher Nolan",
+        "Precio": "400",
+        "cuatroK": "si"
+    },
+    {
+        "Titulo": "The Amazing Spider-Man",
+        "Año": "2012",
+        "Duracion": "136 min",
+        "Genero": "Action",
+        "Director": "Marc Webb",
+        "Precio": "300",
+        "cuatroK": "no"
+    },
+    {
+        "Titulo": "The Dark Knight Rises",
+        "Año": "2012",
+        "Duracion": "164 min",
+        "Genero": "Action",
+        "Director": "Christopher Nolan",
+        "Precio": "400",
+        "cuatroK": "no"
+    },
+    {
+        "Titulo": "World War Z",
+        "Año": "2013",
+        "Duracion": "116 min",
+        "Genero": "Action",
+        "Director": "Marc Forster",
+        "Precio": "300",
+        "cuatroK": "no"
+    },
+    {
+        "Titulo": "Monsters University",
+        "Año": "2013",
+        "Duracion": "104 min",
+        "Genero": "Adventure",
+        "Director": "Dan Scanlon",
+        "Precio": "250",
+        "cuatroK": "si"
+    },
+    {
+        "Titulo": "Dawn of the Planet of the Apes",
+        "Año": "2014",
+        "Duracion": "130 min",
+        "Genero": "Adventure",
+        "Director": "Matt Reeves",
+        "Precio": "250",
+        "cuatroK": "no"
+    },
+    {
+        "Titulo": "Transformers Age of Extinction",
+        "Año": "2014",
+        "Duracion": "165 min",
+        "Genero": "Action",
+        "Director": "Michael Bay",
+        "Precio": "250",
+        "cuatroK": "no"
+    },
+    {
+        "Titulo": "Guardians of the Galaxy",
+        "Año": "2014",
+        "Duracion": "121 min",
+        "Genero": "Action",
+        "Director": "James Gunn",
+        "Precio": "250",
+        "cuatroK": "no"
+    },
+    {
+        "Titulo": "Harry Potter and the Half-Blood Prince",
+        "Año": "2009",
+        "Duracion": "153 min",
+        "Genero": "Adventure",
+        "Director": "David Yates",
+        "Precio": "350",
+        "cuatroK": "no"
+    },
+    {
+        "Titulo": "Transformers Revenge of the Fallen",
+        "Año": "2009",
+        "Duracion": "150 min",
+        "Genero": "Action",
+        "Director": "Michael Bay",
+        "Precio": "250",
+        "cuatroK": "no"
+    },
+    {
+        "Titulo": "The Karate Kid",
+        "Año": "2010",
+        "Duracion": "140 min",
+        "Genero": "Action",
+        "Director": "Harald Zwart",
+        "Precio": "300",
+        "cuatroK": "no"
+    },
+    {
+        "Titulo": "Despicable Me",
+        "Año": "2010",
+        "Duracion": "95 min",
+        "Genero": "Comedy",
+        "Director": "Pierre Coffin, Chris Renaud",
+        "Precio": "250",
+        "cuatroK": "no"
+    },
+    {
+        "Titulo": "Inception",
+        "Año": "2010",
+        "Duracion": "148 min",
+        "Genero": "Adventure",
+        "Director": "Christopher Nolan",
+        "Precio": "400",
+        "cuatroK": "si"
+    },
+    {
+        "Titulo": "The Twilight Saga Eclipse",
+        "Año": "2010",
+        "Duracion": "124 min",
+        "Genero": "Drama",
+        "Director": "David Slade",
+        "Precio": "250",
+        "cuatroK": "no"
+    },
+    {
+        "Titulo": "Toy Story 3",
+        "Año": "2010",
+        "Duracion": "103 min",
+        "Genero": "Adventure",
+        "Director": "Lee Unkrich",
+        "Precio": "350",
+        "cuatroK": "si"
+    },
+    {
+        "Titulo": "Captain America The First Avenger",
+        "Año": "2011",
+        "Duracion": "124 min",
+        "Genero": "Action",
+        "Director": "Joe Johnston",
+        "Precio": "250",
+        "cuatroK": "si"
+    },
+    {
+        "Titulo": "Rise of the Planet of the Apes",
+        "Año": "2011",
+        "Duracion": "105 min",
+        "Genero": "Drama",
+        "Director": "Rupert Wyatt",
+        "Precio": "250",
+        "cuatroK": "no"
+    },
+    {
+        "Titulo": "Cars 2",
+        "Año": "2011",
+        "Duracion": "106 min",
+        "Genero": "Adventure",
+        "Director": "John Lasseter, Brad Lewis",
+        "Precio": "250",
+        "cuatroK": "si"
+    },
+    {
+        "Titulo": "Transformers Dark of the Moon",
+        "Año": "2011",
+        "Duracion": "154 min",
+        "Genero": "Action",
+        "Director": "Michael Bay",
+        "Precio": "250",
+        "cuatroK": "no"
+    },
+    {
+        "Titulo": "Harry Potter and the Deathly Hallows Part 2",
+        "Año": "2011",
+        "Duracion": "130 min",
+        "Genero": "Adventure",
+        "Director": "David Yates",
+        "Precio": "400",
+        "cuatroK": "no"
+    },
+    {
+        "Titulo": "Ice Age Continental Drift",
+        "Año": "2012",
+        "Duracion": "88 min",
+        "Genero": "Adventure",
+        "Director": "Steve Martino, Mike Thurmeier",
+        "Precio": "250",
+        "cuatroK": "si"
+    },
+    {
+        "Titulo": "Ted",
+        "Año": "2012",
+        "Duracion": "106 min",
+        "Genero": "Comedy",
+        "Director": "Seth MacFarlane",
+        "Precio": "350",
+        "cuatroK": "no"
+    }
+]
