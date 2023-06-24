@@ -23,6 +23,7 @@ body {
         rgba(1, 30, 52, 1) 31%,
         rgba(1, 123, 148, 1) 100%
     );
+    z-index: 500;
 }
 .separador {
     height: 100px;
@@ -65,6 +66,19 @@ body {
     border-width: 3px;
     border-color: #ffb703;
     color: #ffb703;
+    height: 500px;
+    position: relative;
+}
+.portadacss {
+    position: absolute;
+    max-height: 80%;
+    object-fit: contain;
+}
+.boton-visible {
+    z-index: 400;
+}
+.boton-oculto {
+    z-index: -1;
 }
 .boton-pelicula {
     background-color: rgba(1, 30, 52, 1);

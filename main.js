@@ -16,35 +16,49 @@ function AgregarProductosIndex() {
         .then((data) => {
             data.forEach((producto) => {
                 if (Number(producto.Año) > 2021) {
+                    let portada = document.createElement("img")
+                    portada.setAttribute("src", `img/${producto.Titulo}.jpg`)
+                    portada.className = "portadacss"
+                    portada.addEventListener("mouseenter", () => {
+                        portada.className =
+                            "portadacss animate__animated animate__fadeOut"
+                    })
+                    portada.addEventListener("mouseleave", () => {
+                        portada.className =
+                            "portadacss animate__animated animate__fadeIn"
+                    })
+
                     let agregarProductos = document.createElement("div")
-                    agregarProductos.className = "align-self-end"
+                    agregarProductos.className =
+                        "align-self-end mt-2 d-flex justify-content-center"
                     agregarProductos.innerHTML = `
-                        <button class="btn boton-pelicula  ">
-                            Agregar al carrito
-                        </button>
+                    <button class="btn boton-pelicula">
+                    Agregar al carrito
+                    </button>
                     `
                     agregarProductos.addEventListener("click", () =>
                         ExisteCarrito(producto)
                     )
-                    let cardProductos = document.createElement("div")
-                    cardProductos.className = "info-pelicula"
-                    cardProductos.innerHTML = `
-                    <p class="">
-                        <div class="datos-producto">Año: ${producto.Año}</div>
-                        <div class="datos-producto">Director: ${producto.Director}</div>
-                        <div class="datos-producto">Género: ${producto.Genero}</div>
-                        <div class="datos-producto">Duración: ${producto.Duracion}</div>
-                        <div class="precio-producto">Precio: $${producto.Precio}</div>
-                    </p>
+                    let infoProductos = document.createElement("div")
+                    infoProductos.className = "info-pelicula"
+                    infoProductos.innerHTML = `
+                        <p class="">
+                            <div class="datos-producto">Año: ${producto.Año}</div>
+                            <div class="datos-producto">Director: ${producto.Director}</div>
+                            <div class="datos-producto">Género: ${producto.Genero}</div>
+                            <div class="datos-producto">Duración: ${producto.Duracion}</div>
+                            <div class="precio-producto">Precio: $${producto.Precio}</div>
+                        </p>
                     `
 
                     let listadoProductos = document.createElement("div")
                     listadoProductos.className =
-                        "col-3 mx-3 my-3 py-3 px-4 row card-pelicula"
+                        "col-3 mx-3 my-3 py-3 px-5 row justify-content-center card-pelicula"
                     listadoProductos.innerHTML = `
-                    <div class="titulo-pelicula text-center fs-4">${producto.Titulo}</div>
+                        <div class="titulo-pelicula text-center fs-4">${producto.Titulo}</div>
                     `
-                    listadoProductos.appendChild(cardProductos)
+                    listadoProductos.appendChild(infoProductos)
+                    listadoProductos.appendChild(portada)
                     listadoProductos.appendChild(agregarProductos)
                     divProductos.appendChild(listadoProductos)
                 }
@@ -61,6 +75,18 @@ function AgregarProductosCatalogo() {
         .then((res) => res.json())
         .then((data) => {
             data.forEach((producto) => {
+                let portada = document.createElement("img")
+                portada.setAttribute("src", `img/${producto.Titulo}.jpg`)
+                portada.className = "portadacss"
+                portada.addEventListener("mouseenter", () => {
+                    portada.className =
+                        "portadacss animate__animated animate__fadeOut"
+                })
+                portada.addEventListener("mouseleave", () => {
+                    portada.className =
+                        "portadacss animate__animated animate__fadeIn"
+                })
+
                 let agregarFiltrados = document.createElement("div")
                 agregarFiltrados.className = "align-self-end"
                 agregarFiltrados.innerHTML = `
@@ -85,11 +111,12 @@ function AgregarProductosCatalogo() {
 
                 let listadoFiltrados = document.createElement("div")
                 listadoFiltrados.className =
-                    "col-3 mx-3 my-3 py-3 px-4 row card-pelicula"
+                    "col-3 mx-3 my-3 py-3 px-5 row justify-content-center card-pelicula"
                 listadoFiltrados.innerHTML = `
                     <div class="titulo-pelicula text-center fs-4">${producto.Titulo}</div>
                     `
                 listadoFiltrados.appendChild(cardFiltrados)
+                listadoFiltrados.appendChild(portada)
                 listadoFiltrados.appendChild(agregarFiltrados)
                 divFiltrados.appendChild(listadoFiltrados)
             })
@@ -223,6 +250,16 @@ function Filtrado(valor, filtroUsado) {
             : console.log("nada")
     divFiltrados.innerHTML = ""
     productosFiltrados.forEach((producto) => {
+        let portada = document.createElement("img")
+        portada.setAttribute("src", `img/${producto.Titulo}.jpg`)
+        portada.className = "portadacss"
+        portada.addEventListener("mouseenter", () => {
+            portada.className = "portadacss animate__animated animate__fadeOut"
+        })
+        portada.addEventListener("mouseleave", () => {
+            portada.className = "portadacss animate__animated animate__fadeIn"
+        })
+
         let agregarFiltrados = document.createElement("div")
         agregarFiltrados.className = "align-self-end"
         agregarFiltrados.innerHTML = `
@@ -246,11 +283,12 @@ function Filtrado(valor, filtroUsado) {
             `
         let listadoFiltrados = document.createElement("div")
         listadoFiltrados.className =
-            "col-3 mx-3 my-3 py-3 px-4 row card-pelicula"
+            "col-3 mx-3 my-3 py-3 px-5 row justify-content-center card-pelicula"
         listadoFiltrados.innerHTML = `
             <div class="titulo-pelicula text-center fs-4">${producto.Titulo}</div>
             `
         listadoFiltrados.appendChild(cardFiltrados)
+        listadoFiltrados.appendChild(portada)
         listadoFiltrados.appendChild(agregarFiltrados)
         divFiltrados.appendChild(listadoFiltrados)
     })
