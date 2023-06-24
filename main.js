@@ -352,6 +352,55 @@ function FaltanProductos(e) {
     })
 }
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                            BUSCADOR
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+function buscarPelicula(nombrePelicula) {
+    const productoBuscado = productos.find(
+        (producto) => producto.Titulo === nombrePelicula
+    )
+    console.log(productoBuscado)
+
+    let portada = document.createElement("img")
+    portada.setAttribute("src", `img/${productoBuscado.Titulo}.jpg`)
+    portada.className = "portadacss"
+    portada.addEventListener("mouseenter", () => {
+        portada.className = "portadacss animate__animated animate__fadeOut"
+    })
+    portada.addEventListener("mouseleave", () => {
+        portada.className = "portadacss animate__animated animate__fadeIn"
+    })
+
+    let agregarBuscado = document.createElement("div")
+    agregarBuscado.className =
+        "align-self-end d-flex justify-content-center mt-2"
+    agregarBuscado.innerHTML = `
+                    <button class="btn boton-pelicula mt-2 ">
+                        Agregar al carrito
+                    </button>
+                    `
+    agregarBuscado.addEventListener("click", () =>
+        ExisteCarrito(productoBuscado)
+    )
+    let cardBuscado = document.createElement("div")
+    cardBuscado.className = "info-pelicula"
+    cardBuscado.innerHTML = `
+                    <p class="">
+                        <div class="datos-producto">Año: ${productoBuscado.Año}</div>
+                        <div class="datos-producto">Director: ${productoBuscado.Director}</div>
+                        <div class="datos-producto">Género: ${productoBuscado.Genero}</div>
+                        <div class="datos-producto">Duración: ${productoBuscado.Duracion}</div>
+                        <div class="precio-producto">Precio: $${productoBuscado.Precio}</div>
+                    </p>
+                    `
+    modalPelicula.className = "col-10 row justify-content-center mt-4 ms-3"
+    modalPelicula.innerHTML = `
+                    <div class="titulo-pelicula text-center fs-4">${productoBuscado.Titulo}</div>
+                    `
+    modalPelicula.appendChild(cardBuscado)
+    modalPelicula.appendChild(portada)
+    modalPelicula.appendChild(agregarBuscado)
+}
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                         INICIA LECTURA
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 const divProductos = document.querySelector(".container-index")
@@ -363,6 +412,11 @@ const input4K = document.querySelectorAll(".input4K")
 const formulario = document.querySelector(".formulario")
 const inputName = document.querySelector("#inputName")
 const inputEmail = document.querySelector("#inputEmail")
+const buscador = document.querySelector("#buscador")
+const botonBuscador = document.querySelector("#boton-buscador")
+const modal = document.querySelector("#ventana-modal")
+const modalPelicula = document.querySelector(".modal-pelicula")
+const cerrarModal = document.getElementsByClassName("cerrar")[0]
 
 AgregarProductosIndex()
 AgregarProductosCatalogo()
@@ -386,3 +440,16 @@ inputPrecio.addEventListener("input", () =>
 inputGenero.addEventListener("input", () =>
     Filtrado(inputGenero.value, "genero")
 )
+
+botonBuscador.addEventListener("click", () => {
+    buscarPelicula(buscador.value)
+    modal.style.display = "block"
+})
+cerrarModal.addEventListener("click", function () {
+    modal.style.display = "none"
+})
+window.addEventListener("click", function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none"
+    }
+})

@@ -77,6 +77,21 @@
                             </li>
                         </ul>
                     </div>
+                    <form class="d-flex align-items-center">
+                        <input
+                            type="text"
+                            placeholder="Buscador"
+                            id="buscador"
+                            class="p-1 me-2 rounded-1 border border-3 input-buscador"
+                        />
+                        <button
+                            class="btn mt-0 me-4 boton-pelicula"
+                            id="boton-buscador"
+                            type="button"
+                        >
+                            Buscar
+                        </button>
+                    </form>
                 </div>
             </nav>
         </header>
@@ -168,6 +183,16 @@
                 </div>
             </div>
         </div>
+        <section class="seccionModal">
+            <div id="ventana-modal" class="modal">
+                <div class="contenido-modal row">
+                    <div class="col-1 d-flex align-items-top">
+                        <span class="cerrar" id="cerrar-modal">&times;</span>
+                    </div>
+                    <div class="col-9 modal-pelicula"></div>
+                </div>
+            </div>
+        </section>
         <section class="seccionCarrito">
             <div class="container">
                 <h2 class="mt-2">Tu Carrito</h2>
