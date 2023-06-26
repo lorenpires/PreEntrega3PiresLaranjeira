@@ -8,6 +8,115 @@ const productos = []
 const carrito = []
 
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                        CAROUSEL
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+function AgregarCarousel() {
+    let i = 1
+    fetch("./data.json")
+        .then((res) => res.json())
+        .then((data) => {
+            data.forEach((producto) => {
+                if (Number(producto.Año) === 2023) {
+                    let imagenCarousel = document.createElement("div")
+                    imagenCarousel.className = "carousel-item"
+                    imagenCarousel.innerHTML = `
+                        <img
+                            src="img/carousel_${producto.Titulo}.jpg"
+                            class="d-block w-100 imagenCarousel"
+                            alt="..."
+                            />
+                            <div class="carousel-caption d-none d-md-block">
+                            <p class="subtitulo-carousel">${producto.Titulo}<p>
+                        </div>
+                        `
+                    if (i === 1) {
+                        imagenCarousel.className = "carousel-item active"
+                        i++
+                    }
+                    contenedorCarousel.appendChild(imagenCarousel)
+                }
+            })
+        })
+}
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                        AGREGO SLIDER
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+function AgregarSlider() {
+    let i = 4
+    let v = 0
+    let ulSlider
+    fetch("./data.json")
+        .then((res) => res.json())
+        .then((data) => {
+            data.forEach((producto) => {
+                console.log(i)
+                if (i === 4) {
+                    v++
+                    ulSlider = document.querySelector(`.ulSlider${v}`)
+                    i = 0
+                    console.log("pre carga")
+                    console.log(ulSlider)
+                }
+                i++
+                let portada = document.createElement("img")
+                portada.setAttribute("src", `img/${producto.Titulo}.jpg`)
+                portada.className = "portadacss"
+                portada.addEventListener("mouseenter", () => {
+                    portada.className =
+                        "portadacss animate__animated animate__fadeOut"
+                })
+                portada.addEventListener("mouseleave", () => {
+                    portada.className =
+                        "portadacss animate__animated animate__fadeIn"
+                })
+
+                let agregarEnSlider = document.createElement("div")
+                agregarEnSlider.className =
+                    "align-self-end mb-2 d-flex justify-content-center"
+                agregarEnSlider.innerHTML = `
+                    <button class="btn boton-pelicula">
+                        Agregar al carrito
+                    </button>
+                    `
+                agregarEnSlider.addEventListener("click", () =>
+                    ExisteCarrito(producto)
+                )
+                let cardSlider = document.createElement("div")
+                cardSlider.className =
+                    " mx-3 my-3 py-3 px-4 row justify-content-center card-pelicula"
+                cardSlider.innerHTML = `
+                    <div class="titulo-pelicula text-center fs-4">${producto.Titulo}</div>
+                    <div class="info-pelicula">
+                    <p class="">
+                        <div class="datos-producto">Año: ${producto.Año}</div>
+                        <div class="datos-producto">Director: ${producto.Director}</div>
+                        <div class="datos-producto">Género: ${producto.Genero}</div>
+                        <div class="datos-producto">Duración: ${producto.Duracion}</div>
+                        <div class="precio-producto">Precio: $${producto.Precio}</div>
+                    </p>
+                    </div>
+                `
+                let liSlider = document.createElement("li")
+                liSlider.className = "liSliders"
+                cardSlider.appendChild(portada)
+                cardSlider.appendChild(agregarEnSlider)
+                liSlider.appendChild(cardSlider)
+                ulSlider.appendChild(liSlider)
+                console.log("post carga")
+                console.log(ulSlider)
+                /*if (i === 3) {
+                    const itemSlider = document.querySelector(
+                        `.slider-item${v}`
+                    )
+                    itemSlider.appendChild(ulSlider)
+                    ulSlider.innerHTML = ""
+                    v++
+                    i = 0
+                }*/
+            })
+        })
+}
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 AGREGO PRODUCTOS A ESTRENOS
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 function AgregarProductosIndex() {
@@ -42,20 +151,20 @@ function AgregarProductosIndex() {
                     let infoProductos = document.createElement("div")
                     infoProductos.className = "info-pelicula"
                     infoProductos.innerHTML = `
-                        <p class="">
-                            <div class="datos-producto">Año: ${producto.Año}</div>
-                            <div class="datos-producto">Director: ${producto.Director}</div>
-                            <div class="datos-producto">Género: ${producto.Genero}</div>
-                            <div class="datos-producto">Duración: ${producto.Duracion}</div>
-                            <div class="precio-producto">Precio: $${producto.Precio}</div>
-                        </p>
+                    <p class="">
+                    <div class="datos-producto">Año: ${producto.Año}</div>
+                    <div class="datos-producto">Director: ${producto.Director}</div>
+                    <div class="datos-producto">Género: ${producto.Genero}</div>
+                    <div class="datos-producto">Duración: ${producto.Duracion}</div>
+                    <div class="precio-producto">Precio: $${producto.Precio}</div>
+                    </p>
                     `
 
                     let listadoProductos = document.createElement("div")
                     listadoProductos.className =
-                        "col-3 mx-3 my-3 py-3 px-5 row justify-content-center card-pelicula"
+                        "col-xl-3 col-lg-4 col-md-5 col-10 mx-3 my-3 py-3 px-5 row justify-content-center card-pelicula"
                     listadoProductos.innerHTML = `
-                        <div class="titulo-pelicula text-center fs-4">${producto.Titulo}</div>
+                    <div class="titulo-pelicula text-center fs-4">${producto.Titulo}</div>
                     `
                     listadoProductos.appendChild(infoProductos)
                     listadoProductos.appendChild(portada)
@@ -66,9 +175,8 @@ function AgregarProductosIndex() {
             productos.push(...data)
         })
 }
-
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                AGREGO PRODUCTOS A CATALOGO
+AGREGO PRODUCTOS A CATALOGO
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 function AgregarProductosCatalogo() {
     fetch("./data.json")
@@ -417,9 +525,13 @@ const botonBuscador = document.querySelector("#boton-buscador")
 const modal = document.querySelector("#ventana-modal")
 const modalPelicula = document.querySelector(".modal-pelicula")
 const cerrarModal = document.getElementsByClassName("cerrar")[0]
+const contenedorCarousel = document.querySelector(".carousel-inner")
+const innerSlider = document.querySelector(".slider-inner")
 
 AgregarProductosIndex()
 AgregarProductosCatalogo()
+AgregarCarousel()
+AgregarSlider()
 
 carrito.length === 0 && RecibirStorage()
 

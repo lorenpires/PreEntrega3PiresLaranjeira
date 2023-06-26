@@ -81,8 +81,59 @@
             </nav>
         </header>
         <div class="separador"></div>
+        <section class="seccionCarousel">
+            <div id="carouselExampleCaptions" class="carousel slide">
+                <div class="carousel-indicators">
+                    <button
+                        type="button"
+                        data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide-to="0"
+                        class="active"
+                        aria-current="true"
+                        aria-label="Slide 1"
+                    ></button>
+                    <button
+                        type="button"
+                        data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide-to="1"
+                        aria-label="Slide 2"
+                    ></button>
+                    <button
+                        type="button"
+                        data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide-to="2"
+                        aria-label="Slide 3"
+                    ></button>
+                </div>
+                <div class="carousel-inner"></div>
+                <button
+                    class="carousel-control-prev"
+                    type="button"
+                    data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="prev"
+                >
+                    <span
+                        class="carousel-control-prev-icon"
+                        aria-hidden="true"
+                    ></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button
+                    class="carousel-control-next"
+                    type="button"
+                    data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="next"
+                >
+                    <span
+                        class="carousel-control-next-icon"
+                        aria-hidden="true"
+                    ></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </section>
         <section class="seccionOfertas">
-            <div class="container ultimas pt-3 pb-2">
+            <div class="container ultimas mt-4 mb-3 pt-3 pb-2">
                 <h1 class="text-center fw-1">ULTIMAS PELICULAS AGREGADAS</h1>
             </div>
             <div class="container">
@@ -90,15 +141,129 @@
                     class="row container-index mt-4 justify-content-center"
                 ></div>
             </div>
-            <hr />
         </section>
+        <section class="seccionSlider">
+            <div class="container-fluid ultimas mt-5 mb-2 pt-3 pb-2">
+                <h1 class="text-center fw-1">TODAS NUESTRAS PELICULAS</h1>
+            </div>
+            <div class="containerCarousel containerSlider">
+                <div
+                    id="carouselExampleIndicators"
+                    class="carousel slide Slider"
+                >
+                    <div class="carousel-indicators mb-0">
+                        <button
+                            type="button"
+                            data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide-to="0"
+                            class="active"
+                            aria-current="true"
+                            aria-label="Slide 1"
+                        ></button>
+                        <button
+                            type="button"
+                            data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide-to="1"
+                            aria-label="Slide 2"
+                        ></button>
+                        <button
+                            type="button"
+                            data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide-to="2"
+                            aria-label="Slide 3"
+                        ></button>
+                        <button
+                            type="button"
+                            data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide-to="3"
+                            aria-label="Slide 4"
+                        ></button>
+                        <button
+                            type="button"
+                            data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide-to="4"
+                            aria-label="Slide 5"
+                        ></button>
+                        <button
+                            type="button"
+                            data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide-to="5"
+                            aria-label="Slide 6"
+                        ></button>
+                        <button
+                            type="button"
+                            data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide-to="6"
+                            aria-label="Slide 7"
+                        ></button>
+                        <button
+                            type="button"
+                            data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide-to="7"
+                            aria-label="Slide 8"
+                        ></button>
+                    </div>
+                    <div class="carousel-inner slider-inner pb-4">
+                        <div class="carousel-item slider-item1 active">
+                            <ul class="ulSliders ulSlider1"></ul>
+                        </div>
+                        <div class="carousel-item slider-item2">
+                            <ul class="ulSliders ulSlider2"></ul>
+                        </div>
+                        <div class="carousel-item slider-item3">
+                            <ul class="ulSliders ulSlider3"></ul>
+                        </div>
+                        <div class="carousel-item slider-item4">
+                            <ul class="ulSliders ulSlider4"></ul>
+                        </div>
+                        <div class="carousel-item slider-item5">
+                            <ul class="ulSliders ulSlider5"></ul>
+                        </div>
+                        <div class="carousel-item slider-item6">
+                            <ul class="ulSliders ulSlider6"></ul>
+                        </div>
+                        <div class="carousel-item slider-item7">
+                            <ul class="ulSliders ulSlider7"></ul>
+                        </div>
+                        <div class="carousel-item slider-item8">
+                            <ul class="ulSliders ulSlider8"></ul>
+                        </div>
+                    </div>
+                    <button
+                        class="carousel-control-prev ms-4 botonSlider"
+                        type="button"
+                        data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="prev"
+                    >
+                        <span
+                            class="carousel-control-prev-icon"
+                            aria-hidden="true"
+                        ></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button
+                        class="carousel-control-next me-4 botonSlider"
+                        type="button"
+                        data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="next"
+                    >
+                        <span
+                            class="carousel-control-next-icon"
+                            aria-hidden="true"
+                        ></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+        <div class="divisor my-5"></div>
         <section class="seccionCarrito">
             <div class="container">
                 <h2 class="mt-2">Tu Carrito</h2>
                 <div class="divCarrito row justify-content-center"></div>
             </div>
-            <hr />
         </section>
+        <div class="divisor my-5"></div>
         <section class="seccionFormulario p-3 pb-5">
             <form class="container mt-2 mb-2 formulario">
                 <div>

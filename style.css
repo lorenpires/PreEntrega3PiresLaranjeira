@@ -216,3 +216,43 @@ body {
 .input-buscador {
     border-color: rgba(2, 0, 36, 1);
 }
+.imagenCarousel {
+    max-height: 500px;
+    height: 500px;
+    object-fit: cover;
+}
+.subtitulo-carousel {
+    font-family: "Tilt Prism", cursive;
+    color: #ffb703;
+    font-size: 3rem;
+    text-shadow: 7px 7px 3px black;
+}
+.ulSliders,
+.liSliders {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.containerSilder {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    background-color: black;
+    margin-bottom: 50px;
+}
+.ulSliders {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.liSliders {
+    width: 22%;
+}
+.botonSlider {
+    max-width: 33px;
+}
+.divisor {
+    width: 100%;
+    height: 3px;
+    background-color: #ffb703;
+}
